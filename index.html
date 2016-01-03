@@ -9,6 +9,7 @@
     <script src="js/jQuery.js"></script>
     <script src="js/helper.js"></script>
     <script src="js/data.js"></script>
+    <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
     <!--
   Uncomment the <script> tag below when you're ready to add an interactive
@@ -60,8 +61,9 @@
         if (document.getElementsByClassName('project-entry').length === 0) {
             $('#projects').css("background-color", "black");
         }
-        if (document.getElementsByClassName('education-entry').length === 0) {                    document.getElementById('education').style.display = 'none';
-                    }
+        if (document.getElementsByClassName('education-entry').length === 0) {
+            document.getElementById('education').style.display = 'none';
+        }
         if (document.getElementsByClassName('flex-item').length === 0) {
             $('#lets-connect').css("background-color", "black");
         }

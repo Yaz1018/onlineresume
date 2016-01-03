@@ -4,7 +4,7 @@ var bio = {
     contacts: {
         mobile: "508-463-7825",
         email: "garoncdavis@gmail.com",
-        github: "https://github.com/Yaz1018",
+        github: "Yaz1018",
         twitter: "@GaronD",
         location: "Boston, MA"
     },
@@ -16,11 +16,9 @@ var bio = {
             var formatted = helper.replace("%data%", info);
             $("#header").append(formatted);
         }
-
-        //$("#workExperience").append(HTMLworkStart);
         bioBuilder(HTMLheaderName, this.name);
         bioBuilder(HTMLheaderRole, this.role);
-        //bioBuilder(HTMLmobile, this.contacts.mobile);
+        bioBuilder(HTMLmobile, this.contacts.mobile);
         bioBuilder(HTMLemail, this.contacts.email);
         bioBuilder(HTMLtwitter, this.contacts.twitter);
         bioBuilder(HTMLgithub, this.contacts.github);
@@ -41,8 +39,7 @@ var bio = {
 };
 
 var work = {
-    jobs: [
-        {
+    jobs: [{
             employer: "Runkeeper",
             title: "Director of Customer Success",
             location: "Boston, MA",
@@ -55,8 +52,7 @@ var work = {
             location: "Waltham, MA",
             date: "December 2007 - Novemeber 2013",
             description: "In charge of maintaining customer relations and building new products for the partner team on the web"
-        }
-    ],
+        }],
     display: function () {
         for (var a in work.jobs) {
             function workBuilder(helper, info) {
@@ -74,64 +70,54 @@ var work = {
     }
 };
 
-var projects = [
-    {
-        title: "Space Project",
-        dates: "September - Novemeber 2014",
-        description: "Go where no human has gone",
-        images: ["images/image3.jpg"],
-        display: function () {
-            function projectBuilder(helper, info) {
-                var formatted = helper.replace("%data%", info);
-                $(".project-entry:last").append(formatted);
-            }
-            $("#projects").append(HTMLprojectStart);
-            projectBuilder(HTMLprojectTitle, this.title);
-            projectBuilder(HTMLprojectDates, this.dates);
-            projectBuilder(HTMLprojectDescription, this.description);
-            projectBuilder(HTMLprojectImage, this.images);
-        }
-    },
-    {
-        title: "Nature Project",
-        dates: "July - August 2015",
-        description: "Explore the great outdoors",
-        images: ["images/image2.jpg"],
-        display: function () {
-            function projectBuilder(helper, info) {
-                var formatted = helper.replace("%data%", info);
-                $(".project-entry:last").append(formatted);
-            }
-            $("#projects").append(HTMLprojectStart);
-            projectBuilder(HTMLprojectTitle, this.title);
-            projectBuilder(HTMLprojectDates, this.dates);
-            projectBuilder(HTMLprojectDescription, this.description);
-            projectBuilder(HTMLprojectImage, this.images);
-
-        }
+var project = {
+    projects: [{
+            title: "Space Project",
+            dates: "September - Novemeber 2014",
+            description: "Go where no human has gone",
+            images: ["images/image3.jpg"],
     }
-];
+              ,
+        {
+            title: "Nature Project",
+            dates: "July - August 2015",
+            description: "Explore the great outdoors",
+            images: ["images/image2.jpg"],
+
+    }],
+    display: function () {
+        for (var a in project.projects) {
+
+            function projectBuilder(helper, info) {
+                var formatted = helper.replace("%data%", info);
+                $(".project-entry:last").append(formatted);
+            }
+            $("#projects").append(HTMLprojectStart);
+            projectBuilder(HTMLprojectTitle, project.projects[a].title);
+            projectBuilder(HTMLprojectDates, project.projects[a].dates);
+            projectBuilder(HTMLprojectDescription, project.projects[a].description);
+            projectBuilder(HTMLprojectImage, project.projects[a].images);
+        }
+
+    }
+};
 
 var education = {
-    "schools": [
-        {
-            "name": "Saint joesph's College of Maine",
-            "location": "Standish, ME",
-            "degree": "Elementry Education",
-            "majors": ["BA"],
-            "dates": "2001-2005",
-            "url": "https://www.sjcme.edu/"
-        }
-    ],
+    "schools": [{
+        "name": "Saint joesph's College of Maine",
+        "location": "Standish, ME",
+        "degree": "Elementry Education",
+        "majors": ["BA"],
+        "dates": "2001-2005",
+        "url": "https://www.sjcme.edu/"
+        }],
 
-    "onlineCourses": [
-        {
-            "title": "Javascripts Basics",
-            "school": "Udacity",
-            "date": "December 2015",
-            "url": "https://www.udacity.com",
-        }
-    ],
+    "onlineCourses": [{
+        "title": "Javascripts Basics",
+        "school": "Udacity",
+        "date": "December 2015",
+        "url": "https://www.udacity.com",
+        }],
     "display": function () {
         for (var a in education.schools) {
             function eduBuilder(helper, info) {
@@ -152,8 +138,6 @@ var education = {
                 var formatted = helper.replace("%data%", info);
                 $(".education-entry:last").append(formatted);
             }
-
-
             onlBuilder(HTMLonlineTitle, education.onlineCourses[a].title + ' - ' + education.onlineCourses[a].school);
             onlBuilder(HTMLonlineDates, education.onlineCourses[a].date);
             onlBuilder(HTMLonlineURL, education.onlineCourses[a].url);
